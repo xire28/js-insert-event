@@ -1,0 +1,32 @@
+@keyframes js-insert-animation {
+    from{opacity:0.99} to {opacity:1}
+}
+
+@-moz-keyframes js-insert-animation {
+    from{opacity:0.99} to {opacity:1}
+}
+
+@-webkit-keyframes js-insert-animation {
+    from{opacity:0.99} to {opacity:1}
+}
+
+@-ms-keyframes js-insert-animation {
+    from{opacity:0.99} to {opacity:1}
+}
+
+@-o-keyframes js-insert-animation {
+    from{opacity:0.99} to {opacity:1}
+}
+
+body.js-insert-animation-event .js-insert {
+    animation-duration: 0.01s;
+    -o-animation-duration: 0.01s;
+    -ms-animation-duration: 0.01s;
+    -moz-animation-duration: 0.01s;
+    -webkit-animation-duration: 0.01s;
+    animation-name: js-insert-animation;
+    -o-animation-name: js-insert-animation;
+    -ms-animation-name: js-insert-animation;
+    -moz-animation-name: js-insert-animation;
+    -webkit-animation-name: js-insert-animation;
+}
