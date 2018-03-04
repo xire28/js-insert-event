@@ -47,13 +47,14 @@
     }
 
     function MutationObserverClass(){
-      var prefixes = ['', 'WebKit', 'Moz', 'O', 'Ms']
-      for(var i=0; i < prefixes.length; i++) {
+      var prefixes = ['', 'WebKit', 'Moz', 'O', 'Ms'],
+          klass;
+      for(var i=0; !klass && i < prefixes.length; i++) {
         if(prefixes[i] + 'MutationObserver' in window) {
-          return window[prefixes[i] + 'MutationObserver'];
+          klass = window[prefixes[i] + 'MutationObserver'];
         }
       }
-      return false;
+      return klass;
     };
 
     function supportNodeInsertedEvent(){
