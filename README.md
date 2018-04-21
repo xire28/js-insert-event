@@ -2,7 +2,7 @@
 Cross-browser node insert event
 
 ## Requirements
-- JQuery 1.8.x or higher
+- JQuery (1.8.x or higher) or zepto
 
 ## Browser support
 
@@ -14,7 +14,7 @@ Several methods are used to provide cross-browser support:
 - Timer: IE8-
 
 ## Usage
-Add the class `js-insert` to any node and a bubbling `insert` event will be triggered when inserted.
+Add the class `js-insert-event` to any node and a bubbling `insert` event will be triggered when inserted in the DOM.
 
 ## Example
 ```html
@@ -24,7 +24,7 @@ Add the class `js-insert` to any node and a bubbling `insert` event will be trig
     <link rel="stylesheet" type="text/css" href="js-insert.css">
   </head>
   <body>
-    <input type="date" class="js-insert js-date"/>
+    <input type="date" class="js-insert-event js-date"/>
     <script src="jquery.js"></script>
     <script src="js-insert.js"></script>
     <script>

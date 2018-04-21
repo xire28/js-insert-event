@@ -1,6 +1,6 @@
 (function(window, document, $) {
     var EVENT_NAME = 'insert',
-        CLASS_NAME = 'js-insert',
+        CLASS_NAME = 'js-insert-event',
         CLASS_NAME_SELECTOR = '.' + CLASS_NAME,
         ANIMATION_NAME = 'js-insert-animation',
         ANIMATION_EVENT_NAMES = ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'],

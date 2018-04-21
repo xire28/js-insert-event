@@ -18,7 +18,7 @@
     from{opacity:0.99} to {opacity:1}
 }
 
-body.js-insert-animation-event .js-insert {
+body.js-insert-animation-event .js-insert-event {
     animation-duration: 0.01s;
     -o-animation-duration: 0.01s;
     -ms-animation-duration: 0.01s;
