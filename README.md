@@ -1,4 +1,4 @@
-# Js-insert
+# Js-insert-event
 Cross-browser node insert event
 
 ## Requirements
