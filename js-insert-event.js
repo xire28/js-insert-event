@@ -97,4 +97,4 @@
       useTimer();
     }
 
-})(window, document, jQuery);
+})(window, document, $);
