@@ -8,9 +8,9 @@ Cross-browser node insert event
 
 Several methods are used to provide cross-browser support:
 
-- Insert animation event ([fastest](http://www.backalleycoder.com/2012/04/25/i-want-a-damnodeinserted/)): IE11+, Edge 13+, Firefox 47+, Chrome 49+, Safari 9.1+, Opera 39+, IOS Safari 9.2+, Android Browser 4.4+, Chrome for Android 51+
-- Mutation observer: Edge 12+, Firefox 46+, Safari 8+, Opera 36+, IOS Safari 8.1+, Blackberry browser 10+, Opera Mobile 37+, Firefox for Android 51+, IE Mobile 11+
-- Node inserted event: Every browser except IE8-
+- Insert animation event ([fastest](http://www.backalleycoder.com/2012/04/25/i-want-a-damnodeinserted/)): IE10+, Edge, Firefox 5+, Chrome 4+, Safari 4+, Opera 12.1+
+- Mutation observer
+- Node inserted event: Every browsers except IE8-
 - Timer: IE8-
 
 ## Usage

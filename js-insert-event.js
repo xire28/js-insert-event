@@ -3,15 +3,26 @@
         CLASS_NAME = 'js-insert-event',
         CLASS_NAME_SELECTOR = '.' + CLASS_NAME,
         ANIMATION_NAME = 'js-insert-animation',
-        ANIMATION_EVENT_NAMES = ['animationstart', 'MSAnimationStart', 'webkitAnimationStart'],
+        ANIMATION_EVENT_NAMES = ['animationstart', 'webkitAnimationStart', 'mozAnimationStart', 'MSAnimationStart', 'oanimationstart'],
         BODY_ANIMATION_CLASS_NAME = 'js-insert-animation-event',
         BODY_MUTATION_OBSERVER_CLASS_NAME = 'js-insert-mutation-observer',
         BODY_NODE_INSERTED_CLASS_NAME = 'js-insert-event',
         TIMER_INVERVAL = 50,
         BODY_TIMER_CLASS_NAME = 'js-insert-timer';
 
+    function globalOrPrefixed(className){
+      var prefixes = ['', 'WebKit', 'Moz', 'Ms', 'O'],
+          klass;
+      for(var i=0; !klass && i < prefixes.length; i++) {
+        if(prefixes[i] + className in window) {
+          klass = window[prefixes[i] + className];
+        }
+      }
+      return klass;
+    }
+
     function supportAnimationStart(){
-      return !!window.AnimationEvent;
+      return !!globalOrPrefixed('AnimationEvent');
     }
 
     function useAnimationEvent(){
@@ -27,7 +38,7 @@
     }
 
     function supportMutationObserver(){
-      return !!MutationObserverClass();
+      return !!globalOrPrefixed('MutationObserver');
     }
 
     function useMutationObserver(){
@@ -45,17 +56,6 @@
         $(document.body).addClass(BODY_MUTATION_OBSERVER_CLASS_NAME);
       })
     }
-
-    function MutationObserverClass(){
-      var prefixes = ['', 'WebKit', 'Moz', 'O', 'Ms'],
-          klass;
-      for(var i=0; !klass && i < prefixes.length; i++) {
-        if(prefixes[i] + 'MutationObserver' in window) {
-          klass = window[prefixes[i] + 'MutationObserver'];
-        }
-      }
-      return klass;
-    };
 
     function supportNodeInsertedEvent(){
       return !!document.addEventListener;
@@ -84,13 +84,13 @@
     }
 
     if(supportAnimationStart()){
-      // IE11+, Edge 13+, Firefox 47+, Chrome 49+, Safari 9.1+, Opera 39+, IOS Safari 9.2+, Android Browser 4.4+, Chrome for Android 51+
+      // IE10+, Edge, Firefox 5+, Chrome 4+, Safari 4+, Opera 12.1+
       useAnimationEvent();
     } else if(supportMutationObserver()){
-      // Edge 12+, Firefox 46+, Safari 8+, Opera 36+, IOS Safari 8.1+, Blackberry browser 10+, Opera Mobile 37+, Firefox for Android 51+, IE Mobile 11+
+      // Mobile browsers
       useMutationObserver();
     } else if(supportNodeInsertedEvent()){
-      //  Not supported by IE8-
+      // Every browsers except IE8-
       useNodeInsertedEvent();
     } else {
       // IE8-
