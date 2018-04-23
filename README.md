@@ -16,6 +16,9 @@ Several methods are used to provide cross-browser support:
 ## Usage
 Add the class `js-insert-event` to any node and a bubbling `insert` event will be triggered when inserted in the DOM.
 
+## Restriction
+Animation events are not fired if the element is hidden using `display:none`, use `visibility: hidden; height: 0; width: 0` instead.
+
 ## Example
 ```html
 <!DOCTYPE html>

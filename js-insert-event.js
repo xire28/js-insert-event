@@ -8,14 +8,17 @@
         BODY_MUTATION_OBSERVER_CLASS_NAME = 'js-insert-mutation-observer',
         BODY_NODE_INSERTED_CLASS_NAME = 'js-insert-event',
         TIMER_INVERVAL = 50,
-        BODY_TIMER_CLASS_NAME = 'js-insert-timer';
+        BODY_TIMER_CLASS_NAME = 'js-insert-timer',
+        animationEventPrefix;
 
     function globalOrPrefixed(className){
       var prefixes = ['', 'WebKit', 'Moz', 'Ms', 'O'],
           klass;
       for(var i=0; !klass && i < prefixes.length; i++) {
-        if(prefixes[i] + className in window) {
-          klass = window[prefixes[i] + className];
+        var tryGlobalName = prefixes[i] + className;
+        if(tryGlobalName in window) {
+          klass = window[tryGlobalName];
+          animationEventPrefix = prefixes[i];
         }
       }
       return klass;
@@ -26,11 +29,13 @@
     }
 
     function useAnimationEvent(){
-      $.each(ANIMATION_EVENT_NAMES, function(_, animationName){
-        document.addEventListener(animationName, function(event){
-            if(event.animationName == ANIMATION_NAME) $(event.target).trigger(EVENT_NAME);
-        }, false);
-      });
+      var animationEventName = $.grep(ANIMATION_EVENT_NAMES, function(n){
+            return n.toLowerCase().indexOf(animationEventPrefix.toLowerCase()) === 0;
+      })[0];
+
+      document.addEventListener(animationEventName, function(event){
+          if(event.animationName == ANIMATION_NAME) $(event.target).trigger(EVENT_NAME);
+      }, false);
 
       $(function(){
         $(document.body).addClass(BODY_ANIMATION_CLASS_NAME);
