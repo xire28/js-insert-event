@@ -5,10 +5,10 @@
         ANIMATION_NAME = 'js-insert-animation',
         ANIMATION_EVENT_NAMES = ['animationstart', 'webkitAnimationStart', 'mozAnimationStart', 'MSAnimationStart', 'oanimationstart'],
         BODY_ANIMATION_CLASS_NAME = 'js-insert-animation-event',
-        BODY_MUTATION_OBSERVER_CLASS_NAME = 'js-insert-mutation-observer',
-        BODY_NODE_INSERTED_CLASS_NAME = 'js-insert-event',
+        BODY_MUTATION_OBSERVER_CLASS_NAME = 'js-insert-mutation-observer-event',
+        BODY_NODE_INSERTED_CLASS_NAME = 'js-node-insert-event',
         TIMER_INVERVAL = 50,
-        BODY_TIMER_CLASS_NAME = 'js-insert-timer',
+        BODY_TIMER_CLASS_NAME = 'js-insert-timer-event',
         animationEventPrefix;
 
     function globalOrPrefixed(className){
