@@ -25,7 +25,7 @@ DOM insertion triggers listener after:
 - 2-15 ms for all recent browsers
 - 5-20 ms for other browsers
 
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
