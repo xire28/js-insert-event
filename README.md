@@ -14,7 +14,8 @@ Several methods are used to provide cross-browser support:
 - Timer: IE8-
 
 ## Usage
-Add the class `js-insert-event` to any node and a bubbling `insert` event will be triggered when inserted in the DOM.
+- Insert the script in the `<head>` tag or at the end of the `<body>`
+- Add the class `js-insert-event` to any node and a bubbling `insert` event will be triggered when inserted in the DOM.
 
 ## Restriction
 Animation events are not fired if the element is hidden using `display:none`, use `visibility: hidden; height: 0; width: 0` instead.
@@ -25,16 +26,37 @@ Animation events are not fired if the element is hidden using `display:none`, us
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="dist/js-insert-event.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css">
   </head>
   <body>
-    <input type="date" class="js-insert-event js-date"/>
+    <div class="container">
+      <input type="date" class="js-insert-event js-inline-datepicker"/>
+    </div>
+    <hr/>
+    <button class="js-duplicate-datepickers">
+      Duplicate
+    </button>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="dist/js-insert-event.min.js"></script>
     <script>
-      $(document).on('insert', '.js-date', function(){
-        $(this).datepicker();
+      $(document).on('insert', '.js-inline-datepicker', function(){
+        //Get instant feedback
+	      setTimeout(function(){
+          $(this).css({color: 'blue'});
+        }.bind(this));
+      
+        //Takes some time
+        $('<div>').insertAfter(this).datepicker({altField: this, inline: true, dateFormat: 'yy-mm-dd'});
       });
+
+      $(document).on('click', '.js-duplicate-datepickers', function(e){
+        $('.js-inline-datepicker').clone().appendTo('.container');
+        e.preventDefault();
+      })
     </script>
   </body>
 <html>
 ```
+[View demo](https://jsfiddle.net/xire28/b8yok1nh/)
