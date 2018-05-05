@@ -1,5 +1,5 @@
 # Js-insert-event
-Cross-browser node insert event
+Cross-browser node insert event without performance degradation for modern browsers
 
 ## Requirements
 - JQuery (1.8.x or higher) or zepto
