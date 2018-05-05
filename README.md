@@ -33,9 +33,7 @@ Animation events are not fired if the element is hidden using `display:none`, us
       <input type="date" class="js-insert-event js-inline-datepicker"/>
     </div>
     <hr/>
-    <button class="js-duplicate-datepickers">
-      Duplicate
-    </button>
+    <button class="js-duplicate-datepickers">Duplicate</button>
     
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
