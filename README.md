@@ -24,12 +24,12 @@ Animation events are not fired if the element is hidden using `display:none`, us
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="js-insert.css">
+    <link rel="stylesheet" type="text/css" href="dist/js-insert-event.min.css">
   </head>
   <body>
     <input type="date" class="js-insert-event js-date"/>
-    <script src="jquery.js"></script>
-    <script src="js-insert.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="dist/js-insert-event.min.js"></script>
     <script>
       $(document).on('insert', '.js-date', function(){
         $(this).datepicker();

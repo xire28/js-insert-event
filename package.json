@@ -1,0 +1,19 @@
+{
+  "name": "js-insert-event",
+  "version": "1.0.0",
+  "description": "Cross-browser node insert event without performance degradation",
+  "main": "dist/js-insert-event.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xire28/js-insert-event.git"
+  },
+  "author": "Pagliaro Alexandre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xire28/js-insert-event/issues"
+  },
+  "homepage": "https://github.com/xire28/js-insert-event#readme"
+}
