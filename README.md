@@ -9,9 +9,8 @@ Cross-browser node insert event without performance degradation for modern brows
 Several methods are used to provide cross-browser support:
 
 - Insert animation event ([fastest](http://www.backalleycoder.com/2012/04/25/i-want-a-damnodeinserted/)): IE10+, Edge, Firefox 5+, Chrome 4+, Safari 4+, Opera 12.1+
-- Mutation observer
-- Node inserted event: Every browsers except IE8-
-- Timer: IE8-
+- Mutation observer if available
+- Timer: Others
 
 ## Usage
 - Insert the script in the `<head>` tag or at the end of the `<body>`

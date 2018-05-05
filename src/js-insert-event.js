@@ -6,7 +6,6 @@
         ANIMATION_EVENT_NAMES = ['animationstart', 'webkitAnimationStart', 'mozAnimationStart', 'MSAnimationStart', 'oanimationstart'],
         BODY_ANIMATION_CLASS_NAME = 'js-insert-animation-event',
         BODY_MUTATION_OBSERVER_CLASS_NAME = 'js-insert-mutation-observer-event',
-        BODY_NODE_INSERTED_CLASS_NAME = 'js-node-insert-event',
         TIMER_INVERVAL = 50,
         BODY_TIMER_CLASS_NAME = 'js-insert-timer-event',
         animationEventPrefix;
@@ -62,21 +61,6 @@
       })
     }
 
-    function supportNodeInsertedEvent(){
-      return !!document.addEventListener;
-    }
-
-    function useNodeInsertedEvent(){
-      $(document).on('DOMNodeInserted', CLASS_NAME_SELECTOR, function(e){
-         $(e.target).trigger(EVENT_NAME);
-      })
-
-      $(function(){
-        $(CLASS_NAME_SELECTOR).trigger(EVENT_NAME);
-        $(document.body).addClass(BODY_NODE_INSERTED_CLASS_NAME);
-      });
-    }
-
     function useTimer(){
       $(function(){
         var triggerInsert = function(){
@@ -94,11 +78,8 @@
     } else if(supportMutationObserver()){
       // Mobile browsers
       useMutationObserver();
-    } else if(supportNodeInsertedEvent()){
-      // Every browsers except IE8-
-      useNodeInsertedEvent();
     } else {
-      // IE8-
+      // Others
       useTimer();
     }
 
