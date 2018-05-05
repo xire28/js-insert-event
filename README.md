@@ -41,7 +41,7 @@ Animation events are not fired if the element is hidden using `display:none`, us
     <script>
       $(document).on('insert', '.js-inline-datepicker', function(){
         //Get instant feedback
-	      setTimeout(function(){
+	setTimeout(function(){
           $(this).css({color: 'blue'});
         }.bind(this));
       
