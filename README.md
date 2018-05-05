@@ -19,6 +19,46 @@ Several methods are used to provide cross-browser support:
 ## Restriction
 Animation events are not fired if the element is hidden using `display:none`, use `visibility: hidden; height: 0; width: 0` instead.
 
+## Performance
+
+DOM insertion triggers listener after:
+- 2-15 ms for all recent browsers
+- 5-20 ms for other browsers
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="dist/js-insert-event.min.css">
+  </head>
+  <body>
+    <ul class="items">
+    </ul>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="dist/js-insert-event.min.js"></script>
+    <script>
+	(function(){
+	  var timings = [],
+	      $items = $('.items');
+	  
+	  setInterval(createItem, 10);
+	  function createItem(){
+	      timings.push(new Date());
+	      var $item = $('<li class="js-insert-event js-item">').text('item #' + timings.length);
+	      $item.appendTo($items)[0].scrollIntoView();
+	  }
+
+	  $(document).on('insert', '.js-item', function(){
+	      $(this).text($(this).text() + ' - ' + (new Date() - timings[timings.length-1]) + ' ms').css({color: 'blue'}); 
+	  });
+	})();
+    </script>
+  </body>
+</html>
+
+```
+[View demo](http://fiddle.jshell.net/xire28/rw8vt5qf/)
+
 ## Example
 ```html
 <!DOCTYPE html>
