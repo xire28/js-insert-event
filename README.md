@@ -22,8 +22,7 @@ Animation events are not fired if the element is hidden using `display:none`, us
 ## Performance
 
 DOM insertion triggers listener after:
-- 2-15 ms for all recent browsers
-- 5-20 ms for other browsers
+- 2-30 ms
 
 ```html
 <!DOCTYPE html>
