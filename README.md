@@ -44,12 +44,12 @@ DOM insertion triggers listener after:
 	  setInterval(createItem, 10);
 	  function createItem(){
 	      timings.push(new Date());
-	      var $item = $('<li class="js-insert-event js-item">').text('item #' + timings.length);
+	      var $item =  $('<li>', {'class': 'js-insert-event js-item', 'data-id': timings.length-1}).text('item #' + timings.length);
 	      $item.appendTo($items)[0].scrollIntoView();
 	  }
 
 	  $(document).on('insert', '.js-item', function(){
-	      $(this).text($(this).text() + ' - ' + (new Date() - timings[timings.length-1]) + ' ms').css({color: 'blue'}); 
+	      $(this).text($(this).text() + ' - ' + (new Date() - timings[$(this).data('id')]) + ' ms').css({color: 'blue'}); 
 	  });
 	})();
     </script>
