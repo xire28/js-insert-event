@@ -56,7 +56,7 @@ DOM insertion triggers listener after:
 </html>
 
 ```
-[View demo](http://fiddle.jshell.net/xire28/rw8vt5qf/)
+[View demo](https://jsfiddle.net/xire28/rw8vt5qf/)
 
 ## Example
 ```html
